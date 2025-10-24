@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELLY MELLO CORP GROUPE</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Écran de chargement -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="logo-loading">
+                <div class="logo-circle"></div>
+                <h1>MELLY MELLO</h1>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h2>MELLY MELLO</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#activities" class="nav-link">Activités</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button class="lang-btn active">FR</button>
+                <button class="lang-btn">EN</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-animated">
+                    <div class="logo-circle-large"></div>
+                </div>
+                <h1 class="hero-title">MELLY MELLO</h1>
+                <p class="hero-subtitle">CORP GROUPE</p>
+            </div>
+            <p class="hero-description">Une vision intégrée de l'hospitalité, du service et de l'innovation</p>
+            <div class="hero-scroll">
+                <span>Explorer</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Vision</h2>
+                <p class="section-subtitle">Redéfinir l'excellence dans chaque secteur</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>MELLY MELLO CORP GROUPE est une entreprise visionnaire qui allie tradition et innovation pour créer des expériences uniques dans l'hôtellerie, la restauration et les services.</p>
+                    <p>Notre philosophie repose sur l'excellence, l'authenticité et l'engagement envers nos clients et communautés.</p>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <div class="value-icon">★</div>
+                            <h3>Excellence</h3>
+                            <p>Nous visons la perfection dans chaque détail</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">❤️</div>
+                            <h3>Authenticité</h3>
+                            <p>Des expériences vraies et mémorables</p>
+                        </div>
+                        <div class="value-item">
+                            <div class="value-icon">🌱</div>
+                            <h3>Durabilité</h3>
+                            <p>Engagés envers un avenir responsable</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Activités -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Domaines d'Activité</h2>
+                <p class="section-subtitle">Découvrez l'étendue de notre expertise</p>
+            </div>
+            <div class="activities-grid">
+                <!-- Restaurant -->
+                <div class="activity-card" data-activity="restaurant">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🍽️</div>
+                        <h3 class="card-title">Restaurant</h3>
+                        <p class="card-description">Une expérience culinaire raffinée alliant saveurs locales et créativité</p>
+                        <div class="card-hover-content">
+                            <p>Découvrez notre carte saisonnière et nos événements gastronomiques</p>
+                            <a href="restaurant/index.html" class="card-link">Explorer →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chambres -->
+                <div class="activity-card" data-activity="chambres">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🏨</div>
+                        <h3 class="card-title">Chambres</h3>
+                        <p class="card-description">Un havre de paix où confort et élégance se rencontrent</p>
+                        <div class="card-hover-content">
+                            <p>Location de chambres d'exception pour des séjours mémorables</p>
+                            <a href="chambres/index.html" class="card-link">Découvrir →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hôtel -->
+                <div class="activity-card" data-activity="hotel">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">✨</div>
+                        <h3 class="card-title">Hôtel</h3>
+                        <p class="card-description">Projet futur d'un établissement d'exception</p>
+                        <div class="card-hover-content">
+                            <p>Notre vision pour l'hôtellerie de demain - découvrez notre projet</p>
+                            <a href="hotel/index.html" class="card-link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stations -->
+                <div class="activity-card" data-activity="stations">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">⛽</div>
+                        <h3 class="card-title">Stations</h3>
+                        <p class="card-description">Redéfinir l'expérience des stations-service</p>
+                        <div class="card-hover-content">
+                            <p>Un concept innovant alliant commodité, service et durabilité</p>
+                            <a href="stations/index.html" class="card-link">Explorer →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Prêt à vivre l'expérience MELLY MELLO ?</h2>
+                <p class="cta-description">Rejoignez-nous dans cette aventure exceptionnelle</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Nous contacter</a>
+                    <a href="about.html" class="btn btn-secondary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
+                        <h2>MELLY MELLO</h2>
+                    </div>
+                    <p class="footer-description">Une vision intégrée de l'hospitalité, du service et de l'innovation</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#about">À propos</a></li>
+                            <li><a href="#activities">Activités</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Activités</h3>
+                        <ul>
+                            <li><a href="restaurant/index.html">Restaurant</a></li>
+                            <li><a href="chambres/index.html">Chambres</a></li>
+                            <li><a href="hotel/index.html">Hôtel</a></li>
+                            <li><a href="stations/index.html">Stations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Légal</h3>
+                        <ul>
+                            <li><a href="docs/mentions-legales.md">Mentions légales</a></li>
+                            <li><a href="docs/politique-confidentialite.md">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MELLY MELLO CORP GROUPE. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/preload.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
