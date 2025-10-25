@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELLY MELLO RESTAURANT - Excellence Culinaire à Lomé</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --dark-gold: #b8941f;
+            --charcoal: #1a1a1a;
+            --dark-charcoal: #0d0d0d;
+            --light-charcoal: #2a2a2a;
+            --cream: #f8f5f0;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .logo-loading {
+            margin-bottom: 40px;
+        }
+
+        .logo-circle {
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--primary-gold);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 3s infinite;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .logo-circle::before {
+            content: "R";
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .logo-loading h1 {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .logo-loading p {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: transparent;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(13, 13, 13, 0.97);
+            backdrop-filter: blur(15px);
+            padding: 18px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-charcoal);
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            line-height: 1;
+        }
+
+        .logo p {
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+            position: relative;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--white);
+            margin: 4px 0;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+        }
+
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide-1 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .slide-2 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .slide-3 {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-logo {
+            margin-bottom: 40px;
+        }
+
+        .logo-animated {
+            margin-bottom: 30px;
+        }
+
+        .logo-circle-large {
+            width: 160px;
+            height: 160px;
+            border: 3px solid var(--primary-gold);
+            border-radius: 50%;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate 25s linear infinite;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .logo-circle-large::before {
+            content: "R";
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 700;
+        }
+
+        .logo-circle-large::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            background: linear-gradient(to right, var(--white), var(--light-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 30px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--primary-gold);
+            color: var(--primary-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-charcoal);
+            transform: translateY(-5px);
+        }
+
+        .hero-scroll {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .hero-scroll:hover {
+            transform: translateY(8px);
+        }
+
+        .hero-scroll span {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--light-gold);
+        }
+
+        .scroll-arrow {
+            width: 22px;
+            height: 22px;
+            border-right: 2px solid var(--light-gold);
+            border-bottom: 2px solid var(--light-gold);
+            transform: rotate(45deg);
+            animation: bounce 2.5s infinite;
+        }
+
+        /* About Section */
+        .about {
+            padding: 140px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--dark-charcoal);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--dark-gold));
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-charcoal);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--dark-charcoal);
+        }
+
+        .feature-text p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .visual-element {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--dark-gold) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-element::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 140px 0;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            border-color: var(--primary-gold);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+
+        .menu-item {
+            background: var(--light-charcoal);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .menu-price {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .menu-content {
+            padding: 30px;
+        }
+
+        .menu-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .menu-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .menu-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .menu-feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .menu-link {
+            display: inline-block;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .menu-link:hover {
+            border-bottom: 1px solid var(--primary-gold);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 140px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-caption {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 140px 0;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--light-charcoal);
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--dark-charcoal);
+            font-size: 2rem;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .service-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        /* Online Order Section */
+        .online-order {
+            padding: 140px 0;
+            background-color: var(--cream);
+            position: relative;
+        }
+
+        .online-order::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .order-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--dark-charcoal);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--cream);
+            color: var(--text-dark);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            padding: 18px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .submit-btn i {
+            margin-right: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Location Section */
+        .location {
+            padding: 140px 0;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .location::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+
+        .location-info p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .location-info i {
+            margin-right: 15px;
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        .map-container {
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 100px 0 40px;
+            background-color: var(--dark-charcoal);
+            color: var(--white);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo h2 {
+            margin-bottom: 10px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-gold);
+            color: var(--dark-charcoal);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            color: var(--primary-gold);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-gold);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            40% {
+                transform: translateY(-12px) rotate(45deg);
+            }
+            60% {
+                transform: translateY(-6px) rotate(45deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Particle animation */
+        .particle {
+            position: absolute;
+            background-color: rgba(212, 175, 55, 0.6);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 4.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--dark-charcoal);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 60px;
+                transition: var(--transition);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -7px);
+            }
+            
+            .hero-buttons, .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            
+            .footer-links {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+                letter-spacing: 4px;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .cta-title {
+                font-size: 2.8rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .btn {
+                padding: 16px 30px;
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Écran de chargement -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="logo-loading">
+                <div class="logo-circle"></div>
+                <h1>MELLY MELLO</h1>
+                <p>RESTAURANT</p>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">R</div>
+                <div class="logo-text">
+                    <h2>MELLY MELLO</h2>
+                    <p>RESTAURANT</p>
+                </div>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#about" class="nav-link">À Propos</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#gallery" class="nav-link">Galerie</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#order" class="nav-link">Commander</a></li>
+                <li><a href="#location" class="nav-link">Localisation</a></li>
+                <li><a href="#contact" class="nav-cta">Réserver</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-slideshow">
+                <div class="slide slide-1 active"></div>
+                <div class="slide slide-2"></div>
+                <div class="slide slide-3"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-animated">
+                    <div class="logo-circle-large"></div>
+                </div>
+                <h1 class="hero-title">MELLY MELLO</h1>
+                <p class="hero-subtitle">RESTAURANT</p>
+            </div>
+            <p class="hero-description">Une expérience culinaire exceptionnelle alliant saveurs togolaises authentiques et créativité gastronomique</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Découvrir le Menu</a>
+                <a href="#order" class="btn btn-secondary">Commander en Ligne</a>
+            </div>
+            <div class="hero-scroll" id="heroScroll">
+                <span>Explorer</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">L'Art Culinaire MELLY MELLO</h2>
+                <p class="section-subtitle">Découvrez notre passion pour la gastronomie togolaise réinventée avec élégance et authenticité</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>MELLY MELLO RESTAURANT</strong> incarne l'excellence culinaire au cœur de Lomé. Fondé par GNAHOUAME Alali Delali Odile, notre établissement allie tradition et innovation pour créer des expériences gustatives mémorables.</p>
+                    <p>Notre philosophie repose sur le respect des saveurs authentiques, la sélection rigoureuse des ingrédients et la créativité dans l'association des textures et des arômes. Chaque plat raconte une histoire, celle de notre terroir et de notre passion pour l'art culinaire.</p>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Ingrédients Frais</h3>
+                                <p>Produits locaux sélectionnés avec soin pour une fraîcheur optimale</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Recettes Authentiques</h3>
+                                <p>Savoirs-faire traditionnels revisités avec une touche contemporaine</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Préparation Artisanale</h3>
+                                <p>Chaque plat est préparé avec passion et attention aux détails</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Excellence</h3>
+                                <p>Engagement constant pour une qualité et un service irréprochables</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="visual-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Menu -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Carte Gastronomique</h2>
+                <p class="section-subtitle">Découvrez nos spécialités élaborées avec passion et créativité</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="traditionnels">Plats Traditionnels</button>
+                <button class="filter-btn" data-filter="specialites">Spécialités Maison</button>
+                <button class="filter-btn" data-filter="boissons">Boissons</button>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Plat Traditionnel -->
+                <div class="menu-item" data-category="traditionnels">
+                    <div class="menu-image" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="menu-price">6,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Plats Traditionnels</h3>
+                        <p class="menu-description">Pifion - Attieke - Ayimolou - Spaghetti - Akoumé - Khom - Adjékoumé - Frite au poulet</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Traditionnel</span>
+                            <span class="menu-feature">Épicé</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+
+                <!-- Petit Déjeuner -->
+                <div class="menu-item" data-category="specialites">
+                    <div class="menu-image" style="background-image: url('https://images.unsplash.com/photo-1554604164-7a5d633273bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="menu-price">3,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Petit Déjeuner</h3>
+                        <p class="menu-description">Café togolais - Thé - Chocolat chaud - Pain frais avec confiture - Omelettes - Fruits frais</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Matinal</span>
+                            <span class="menu-feature">Équilibré</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+
+                <!-- Déjeuner & Dîner -->
+                <div class="menu-item" data-category="specialites">
+                    <div class="menu-image" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="menu-price">8,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Déjeuner & Dîner</h3>
+                        <p class="menu-description">Plats complets avec accompagnements - Grillades - Poissons frais - Salades composées</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Complet</span>
+                            <span class="menu-feature">Raffiné</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+
+                <!-- Boissons -->
+                <div class="menu-item" data-category="boissons">
+                    <div class="menu-image" style="background-image: url('https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="menu-price">2,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Boissons Maison</h3>
+                        <p class="menu-description">Jus naturels (gingembre, bissap, tamarin) - Cocktails - Vins - Bières locales - Eaux minérales</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Rafraîchissant</span>
+                            <span class="menu-feature">Naturel</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+
+                <!-- Ayimolou -->
+                <div class="menu-item" data-category="traditionnels">
+                    <div class="menu-image" style="background-image: url('https://saveurstogo.com/wp-content/uploads/2019/09/cm1w8pxxe00060ck0h79jcg4p.jpg')">
+                        <div class="menu-price">4,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Ayimolou</h3>
+                        <p class="menu-description">Riz avec du haricot plus accompagnement de votre choix</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Traditionnel</span>
+                            <span class="menu-feature">Équilibré</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+
+                <!-- Akoume -->
+                <div class="menu-item" data-category="traditionnels">
+                    <div class="menu-image" style="background-image: url('https://quefairealome.com/wp-content/uploads/2023/10/maxresdefault-2-2.jpg')">
+                        <div class="menu-price">6,500 FCFA</div>
+                    </div>
+                    <div class="menu-content">
+                        <h3 class="menu-title">Akoume</h3>
+                        <p class="menu-description">Pâte avec farine de maïs plus sauce de votre choix</p>
+                        <div class="menu-features">
+                            <span class="menu-feature">Traditionnel</span>
+                            <span class="menu-feature">Savoureux</span>
+                        </div>
+                        <a href="#order" class="menu-link">Commander →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Univers en Images</h2>
+                <p class="section-subtitle">Immersion dans l'ambiance chaleureuse et élégante de MELLY MELLO</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plat traditionnel">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Plats Traditionnels</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Intérieur du restaurant">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Ambiance Élégante</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Service en salle">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Service Raffiné</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Présentation des plats">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Présentation Artistique</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boissons maison">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Boissons Artisanales</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1554604164-7a5d633273bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Petit déjeuner">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Petits Déjeuners</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://saveurstogo.com/wp-content/uploads/2019/09/cm1w8pxxe00060ck0h79jcg4p.jpg" alt="Ayimolou">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Spécialité Ayimolou</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://quefairealome.com/wp-content/uploads/2023/10/maxresdefault-2-2.jpg" alt="Akoume">
+                    <div class="gallery-overlay">
+                        <div class="gallery-caption">Spécialité Akoume</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Services Exclusifs</h2>
+                <p class="section-subtitle">Des prestations sur mesure pour une expérience gastronomique complète</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="service-title">Service en Salle</h3>
+                    <p class="service-description">Dîner dans notre espace élégant avec un service personnalisé et attentionné.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3 class="service-title">Livraison à Domicile</h3>
+                    <p class="service-description">Commandez en ligne et recevez vos plats préférés directement chez vous.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="service-title">Événements Privés</h3>
+                    <p class="service-description">Organisez vos événements dans notre espace dédié avec menus personnalisés.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="service-title">Cadeaux Gourmands</h3>
+                    <p class="service-description">Offrez des coffrets cadeaux et des expériences culinaires uniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Commande en ligne -->
+    <section id="order" class="online-order">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Commander en Ligne</h2>
+                <p class="section-subtitle">Commandez vos plats préférés pour une livraison rapide ou un retrait sur place</p>
+            </div>
+
+            <form class="order-form" id="orderForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="order-name">Nom complet</label>
+                        <input type="text" id="order-name" name="name" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="order-phone">Téléphone</label>
+                        <input type="tel" id="order-phone" name="phone" required placeholder="Votre numéro">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="order-date">Date et heure souhaitée</label>
+                        <input type="datetime-local" id="order-date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="order-type">Type de commande</label>
+                        <select id="order-type" name="type" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="retrait">Retrait sur place</option>
+                            <option value="livraison">Livraison</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="order-address">Adresse de livraison (si applicable)</label>
+                    <input type="text" id="order-address" name="address" placeholder="Quartier, rue, repères">
+                </div>
+
+                <div class="form-group">
+                    <label for="order-items">Votre commande</label>
+                    <textarea id="order-items" name="items" required placeholder="Décrivez votre commande en détail (ex: 2 Ayimolou, 1 Jus de gingembre, etc.)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="order-notes">Notes supplémentaires</label>
+                    <textarea id="order-notes" name="notes" placeholder="Allergies, préférences, instructions spéciales..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Envoyer la commande
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section Localisation -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nous Trouver</h2>
+                <p class="section-subtitle">Venez nous rencontrer dans notre établissement au cœur de Lomé</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Informations Pratiques</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> En Face le chateau du CEG Babarakondji, Lomé, Togo</p>
+                    <p><i class="fas fa-phone-alt"></i> <strong>Téléphone :</strong> +228 93 99 96 67 / 97 71 60 18</p>
+                    <p><i class="fas fa-clock"></i> <strong>Horaires d'ouverture :</strong></p>
+                    <p>Mardi - Dimanche : 10h00 - 22h00</p>
+                    <p>Fermé le Lundi</p>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                        <a href="https://maps.app.goo.gl/K91CGZUfo2zw2CiX8" target="_blank" class="btn btn-primary" style="display: inline-block;">Voir sur Google Maps</a>
+                        <a href="tel:+22893999667" class="btn btn-secondary" style="display: inline-block;">
+                            <i class="fas fa-phone-alt"></i> Appeler
+                        </a>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.317239753585!2d1.2214093153287205!3d6.203028328411834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMTAuOSJOIDHCsDEzJzE3LjEiRQ!5e0!3m2!1sfr!2stg!4v1620000000000!5m2!1sfr!2stg" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">R</div>
+                        <div class="logo-text">
+                            <h2>MELLY MELLO</h2>
+                            <p>RESTAURANT</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">Une expérience culinaire exceptionnelle alliant saveurs togolaises authentiques et créativité gastronomique dans un cadre élégant et chaleureux.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#about">À Propos</a></li>
+                            <li><a href="#menu">Menu</a></li>
+                            <li><a href="#gallery">Galerie</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#order">Commander</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Menu</h3>
+                        <ul>
+                            <li><a href="#menu">Plats Traditionnels</a></li>
+                            <li><a href="#menu">Spécialités Maison</a></li>
+                            <li><a href="#menu">Petits Déjeuners</a></li>
+                            <li><a href="#menu">Boissons</a></li>
+                            <li><a href="#menu">Déjeuner & Dîner</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li><a href="tel:+22893999667">+228 93 99 96 67</a></li>
+                            <li><a href="tel:+22897716018">+228 97 71 60 18</a></li>
+                            <li><a href="mailto:contact@mellymello.com">contact@mellymello.com</a></li>
+                            <li><a href="#location">En Face CEG Babarakondji</a></li>
+                            <li><a href="#location">Lomé, Togo</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MELLY MELLO RESTAURANT. Tous droits réservés. | <a href="#" style="color: var(--primary-gold); text-decoration: none;">Mentions légales</a> | <a href="#" style="color: var(--primary-gold); text-decoration: none;">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingProgress = document.getElementById('loadingProgress');
+            const navbar = document.getElementById('navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            const heroScroll = document.getElementById('heroScroll');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            console.log('MELLY MELLO RESTAURANT - Page loaded, starting loading animation...');
+            
+            // Simulation du chargement
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // Add a small delay before hiding the loading screen
+                    setTimeout(() => {
+                        loadingScreen.classList.add('fade-out');
+                        
+                        // Remove loading screen from DOM after animation
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                            console.log('Loading screen hidden');
+                        }, 800);
+                    }, 500);
+                }
+                
+                loadingProgress.style.width = `${progress}%`;
+            }, 200);
+            
+            // Create particles for hero section
+            createParticles();
+            
+            // Slideshow functionality
+            initSlideshow();
+            
+            // Gestion du défilement de la navbar
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                
+                // Update active nav link based on scroll position
+                updateActiveNavLink();
+            });
+            
+            // Mobile menu toggle
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Hero scroll button
+            heroScroll.addEventListener('click', function() {
+                document.getElementById('about').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            // Filter menu items
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter items
+                    menuItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements to animate
+            const elementsToAnimate = document.querySelectorAll('.section-header, .about-content, .menu-item, .service-card, .gallery-item');
+            elementsToAnimate.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Order form submission
+            document.getElementById('orderForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('order-name').value;
+                const phone = document.getElementById('order-phone').value;
+                const date = document.getElementById('order-date').value;
+                const type = document.getElementById('order-type').value;
+                const address = document.getElementById('order-address').value;
+                const items = document.getElementById('order-items').value;
+                const notes = document.getElementById('order-notes').value;
+                
+                // Construct WhatsApp message
+                const phoneNumber = '22893999667';
+                const message = `Nouvelle commande MELLY MELLO RESTAURANT:%0A%0A*Nom:* ${name}%0A*Téléphone:* ${phone}%0A*Date/Heure:* ${date}%0A*Type:* ${type}%0A*Adresse:* ${address}%0A%0A*Commande:*%0A${items}%0A%0A*Notes:*%0A${notes}`;
+                
+                // Open WhatsApp with pre-filled message
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+                
+                // Reset form
+                this.reset();
+                
+                // Show success message
+                alert('Votre commande a été envoyée avec succès ! Nous vous contacterons rapidement pour confirmation.');
+            });
+            
+            // Function to update active navigation link based on scroll position
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= sectionTop - 150) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Create particles function
+            function createParticles() {
+                const particlesContainer = document.getElementById('particles');
+                const particleCount = 80;
+                
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random size between 2px and 6px
+                    const size = Math.random() * 4 + 2;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    // Random position
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    // Random animation delay and duration
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 4 + 4;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+                    
+                    // Random opacity
+                    particle.style.opacity = Math.random() * 0.6 + 0.2;
+                    
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            
+            // Slideshow initialization
+            function initSlideshow() {
+                const slides = document.querySelectorAll('.slide');
+                let currentSlide = 0;
+                
+                function nextSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }
+                
+                // Change slide every 5 seconds
+                setInterval(nextSlide, 5000);
+            }
+            
+            // Initialize
+            updateActiveNavLink();
+        });
+    </script>
+</body>
+</html>
