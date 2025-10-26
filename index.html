@@ -789,13 +789,13 @@
 
         .activities-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
         }
 
         .activity-card {
             position: relative;
-            height: 520px;
+            height: 400px;
             border-radius: 50px;
             overflow: hidden;
             cursor: pointer;
@@ -922,7 +922,7 @@
         /* ====== MOBILE FIX ====== */
         @media (max-width: 1000px) {
         .activities-grid {
-            grid-template-columns: 1fr; /* Une seule colonne sur petit écran */
+            grid-template-columns: 2fr; /* Une seule colonne sur petit écran */
             gap: 50px;
         }
 
