@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MELLY MELLO CORP GROUPE - Excellence & Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="logggg.png" type="image/png">
+    
+    <meta name="description" content="MELLY MELLO CORP - Groupe d'excellence dans l'hôtellerie, la restauration et les services premium">
+    <meta name="keywords" content="MELLY MELLO, restaurant, hôtel, chambres, luxe, excellence">
+    <meta property="og:title" content="MELLY MELLO CORP GROUPE - Excellence & Innovation">
+    <meta property="og:description" content="Découvrez notre vision intégrée de l'hospitalité et du service premium">
+    
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --dark-gold: #b8941f;
+            --charcoal: #1a1a1a;
+            --dark-charcoal: #0d0d0d;
+            --light-charcoal: #2a2a2a;
+            --cream: #f8f5f0;
+            --white: #ffffff;
+            --accent-brown: #8b4513;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.2);
+            --shadow-xl: 0 30px 70px rgba(0, 0, 0, 0.3);
+            --transition-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background-color: var(--primary-gold);
+            color: var(--dark-charcoal);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-charcoal);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-gold);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ====== LOADING SCREEN ====== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-content {
+            text-align: center;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .logo-loading {
+            margin-bottom: 50px;
+        }
+
+        .logo-circle {
+            width: 140px;
+            height: 140px;
+            border: 4px solid var(--primary-gold);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 3s infinite, rotate 20s linear infinite;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.5),
+                        inset 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .logo-circle::before {
+            content: "MM";
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+        }
+
+        .logo-circle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+            animation: rotate 15s linear infinite reverse;
+        }
+
+        .logo-loading h1 {
+            color: var(--white);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-loading p {
+            color: var(--primary-gold);
+            font-size: 1.3rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .loading-bar {
+            width: 350px;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold), var(--primary-gold));
+            background-size: 200% 100%;
+            border-radius: 10px;
+            transition: width 0.4s ease;
+            animation: shimmer 1.5s infinite;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* ====== NAVIGATION ====== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, 0.98);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 18px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-charcoal);
+            font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 2rem;
+            letter-spacing: 2px;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .logo-text p {
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 45px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: var(--transition);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 5px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .lang-btn:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 24px;
+            position: relative;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--light-gold));
+            margin: 3px 0;
+            transition: var(--transition);
+            transform-origin: center;
+            border-radius: 2px;
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 50%, var(--dark-charcoal) 100%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+            max-width: 1000px;
+            padding: 0 20px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-logo {
+            margin-bottom: 50px;
+        }
+
+        .logo-circle-large {
+            width: 180px;
+            height: 180px;
+            border: 4px solid var(--primary-gold);
+            border-radius: 50%;
+            margin: 0 auto 40px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate 30s linear infinite, glowPulse 4s ease-in-out infinite;
+            box-shadow: 
+                0 0 60px rgba(212, 175, 55, 0.6),
+                inset 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                box-shadow: 0 0 60px rgba(212, 175, 55, 0.6), inset 0 0 40px rgba(212, 175, 55, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 90px rgba(212, 175, 55, 0.9), inset 0 0 60px rgba(212, 175, 55, 0.4);
+            }
+        }
+
+        .logo-circle-large::before {
+            content: "MM";
+            color: var(--primary-gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            text-shadow: 
+                0 0 30px rgba(212, 175, 55, 0.8),
+                0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-circle-large::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite reverse;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            margin-bottom: 20px;
+            letter-spacing: 8px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 50%, var(--primary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: titleShine 3s ease-in-out infinite;
+        }
+
+        @keyframes titleShine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--primary-gold);
+            margin-bottom: 35px;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero-description {
+            font-size: 1.5rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-scroll {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            animation: floatScroll 2s ease-in-out infinite;
+        }
+
+        @keyframes floatScroll {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-scroll:hover {
+            transform: translateY(10px) !important;
+        }
+
+        .hero-scroll span {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            color: var(--light-gold);
+            font-weight: 600;
+        }
+
+        .scroll-arrow {
+            width: 26px;
+            height: 26px;
+            border-right: 3px solid var(--primary-gold);
+            border-bottom: 3px solid var(--primary-gold);
+            transform: rotate(45deg);
+            animation: bounce 2.5s infinite;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        /* ====== HISTORY SECTION ====== */
+        .history {
+            padding: 150px 0;
+            background: linear-gradient(180deg, var(--white) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .history::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .history-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .history-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 50px;
+        }
+
+        .history-text p {
+            margin-bottom: 25px;
+        }
+
+        .history-text strong {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        .history-timeline {
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            padding-left: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-brown));
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 30px;
+            width: 2px;
+            height: calc(100% + 40px);
+            background: linear-gradient(to bottom, var(--primary-gold), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 4px solid var(--primary-gold);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        .about {
+            padding: 150px 0;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 100px;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 25px;
+            color: var(--dark-charcoal);
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-brown), var(--primary-gold));
+            border-radius: 3px;
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .section-subtitle {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            max-width: 750px;
+            margin: 30px auto 0;
+            line-height: 1.8;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 2;
+            color: var(--text-dark);
+        }
+
+        .about-text p strong {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 20px;
+            transition: var(--transition);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(212, 175, 55, 0.1) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .value-item:hover::before {
+            left: 100%;
+        }
+
+        .value-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-brown));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .value-item:hover::after {
+            transform: scaleX(1);
+        }
+
+        .value-item:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-gold);
+        }
+
+        .value-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-brown));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 10px rgba(212, 175, 55, 0.3));
+            transition: var(--transition);
+        }
+
+        .value-item:hover .value-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .value-item h3 {
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+            color: var(--dark-charcoal);
+            font-weight: 700;
+        }
+
+        .value-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 550px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .visual-element {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--accent-brown) 50%, var(--dark-gold) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-element::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.15) 0%, transparent 40%);
+            animation: rotate 25s linear infinite;
+        }
+
+        /* ====== ACTIVITIES SECTION ====== */
+        .activities {
+            padding: 150px 0;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+            position: relative;
+        }
+
+        .activities::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .activity-card {
+            position: relative;
+            height: 520px;
+            border-radius: 50px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition-slow);
+        }
+
+        .activity-card:hover .card-background {
+            transform: scale(1.1);
+        }
+
+        .activity-card[data-activity="restaurant"] .card-background {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #CD853F 100%);
+        }
+
+        .activity-card[data-activity="boutique"] .card-background {
+            background: linear-gradient(135deg, #2E8B57 0%, #3CB371 50%, #90EE90 100%);
+        }
+
+        .activity-card[data-activity="chambres"] .card-background {
+            background: linear-gradient(135deg, #4B0082 0%, #9370DB 50%, #DDA0DD 100%);
+        }
+
+        .activity-card[data-activity="hotel"] .card-background {
+            background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 50%, #87CEEB 100%);
+        }
+
+        .activity-card[data-activity="stations"] .card-background {
+            background: linear-gradient(135deg, #FF6347 0%, #FFA07A 50%, #FFD700 100%);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+            color: var(--white);
+            transition: var(--transition);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.75));
+        }
+
+        .activity-card:hover .card-content {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+        }
+
+        .card-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+            transition: var(--transition);
+        }
+
+        .activity-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .card-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .card-status {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-open {
+            background: linear-gradient(135deg, #00FF00, #32CD32);
+            color: var(--dark-charcoal);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        .status-soon {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-hover-content {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover .card-hover-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: var(--primary-gold);
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            padding: 15px 35px;
+            border: 2px solid var(--primary-gold);
+            border-radius: 50px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .card-link:hover {
+            background: var(--primary-gold);
+            color: var(--dark-charcoal);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        /* ====== FUTURE SECTION ====== */
+        .future {
+            padding: 150px 0;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .future::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .future-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .future-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin-bottom: 60px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .future-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .future-project {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .future-project:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-gold);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        .project-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold), var(--light-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .project-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        /* ====== CTA SECTION ====== */
+        .cta {
+            padding: 150px 0;
+            background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--charcoal) 50%, var(--dark-charcoal) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 15%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        }
+
+        .cta-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 30px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gold) 50%, var(--primary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+
+        .cta-description {
+            font-size: 1.5rem;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 3px solid transparent;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--light-gold), var(--primary-gold));
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-charcoal);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ====== FOOTER ====== */
+        .footer {
+            padding: 100px 0 40px;
+            background: linear-gradient(180deg, var(--dark-charcoal) 0%, #000000 100%);
+            color: var(--white);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 2.5fr;
+            gap: 100px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 30px;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.9;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary-gold), var(--dark-gold));
+            color: var(--dark-charcoal);
+            transform: translateY(-5px) rotate(10deg);
+            border-color: var(--primary-gold);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-gold), var(--accent-brown));
+            border-radius: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-column ul li a::before {
+            content: '→';
+            position: absolute;
+            left: -25px;
+            opacity: 0;
+            transition: var(--transition);
+            color: var(--primary-gold);
+        }
+
+        .footer-column ul li a:hover::before {
+            opacity: 1;
+            left: -20px;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--primary-gold);
+            padding-left: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+        }
+
+        .footer-bottom a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom a:hover {
+            color: var(--light-gold);
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+            }
+            70% {
+                transform: scale(1.08);
+                box-shadow: 0 0 0 20px rgba(212, 175, 55, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+            }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            40% {
+                transform: translateY(-15px) rotate(45deg);
+            }
+            60% {
+                transform: translateY(-8px) rotate(45deg);
+            }
+        }
+
+        .particle {
+            position: absolute;
+            background-color: rgba(212, 175, 55, 0.6);
+            border-radius: 50%;
+            animation: float 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 1200px) {
+            .hero-title { font-size: 5rem; }
+            .section-title { font-size: 3.5rem; }
+            .activities-grid { gap: 30px; }
+        }
+
+        @media (max-width: 992px) {
+            .about-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-title { font-size: 4rem; }
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background: linear-gradient(180deg, var(--dark-charcoal) 0%, #000000 100%);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 60px;
+                transition: var(--transition);
+                box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(8px, 8px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(8px, -8px);
+            }
+            
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-links { grid-template-columns: 1fr; }
+            
+            .hero-title { font-size: 3rem; }
+            .hero-subtitle { font-size: 1.5rem; letter-spacing: 6px; }
+            .hero-description { font-size: 1.2rem; }
+            .section-title { font-size: 2.8rem; }
+            .cta-title { font-size: 3rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            
+            .activity-card { height: 400px; }
+            .card-title { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { font-size: 2.5rem; letter-spacing: 4px; }
+            .hero-subtitle { font-size: 1.2rem; letter-spacing: 4px; }
+            .section-title { font-size: 2.2rem; }
+            .cta-title { font-size: 2.2rem; }
+            .btn { padding: 16px 35px; width: 100%; max-width: 300px; }
+            .logo-circle-large { width: 140px; height: 140px; }
+            .logo-circle-large::before { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="logo-loading">
+                <div class="logo-circle"></div>
+                <h1>MELLY MELLO</h1>
+                <p>CORP GROUPE</p>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">MM</div>
+                <div class="logo-text">
+                    <h2>MELLY MELLO</h2>
+                    <p>CORP GROUPE</p>
+                </div>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Accueil</a></li>
+                <li><a href="#history" class="nav-link">Notre Histoire</a></li>
+                <li><a href="#activities" class="nav-link">Domaines d'Excellence</a></li>
+                <li><a href="#future" class="nav-link">Ambitions Futures</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="lang-switch">
+                <button class="lang-btn active">FR</button>
+                <button class="lang-btn">EN</button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="heroParticles"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <div class="logo-circle-large"></div>
+                <h1 class="hero-title">MELLY MELLO</h1>
+                <p class="hero-subtitle">CORP GROUPE</p>
+            </div>
+            <p class="hero-description">Excellence, Innovation et Vision Intégrée dans l'Hospitalité Premium</p>
+            <div class="hero-scroll" id="heroScroll">
+                <span>EXPLORER</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="history">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Histoire</h2>
+                <p class="section-subtitle">L'aventure MELLY MELLO : d'une vision simple à un groupe d'excellence</p>
+            </div>
+            <div class="history-content">
+                <div class="history-text">
+                    <p><strong>L'aventure MELLY MELLO</strong> trouve son origine dans une idée simple, née de la passion et du travail acharné : offrir le meilleur, avec authenticité et constance.</p>
+                    <p>Tout débute modestement, avec la vente artisanale de jus de gingembre et de bissap — des produits emblématiques de notre terroir, symbole d'une hospitalité sincère et d'un savoir-faire local. À cette époque, Melly Mello Corp Group n'existait pas encore ; il n'y avait qu'une vision et une détermination sans faille.</p>
+                    <p>Peu à peu, cette initiative se transforme en Melly Mello Boutique, un espace de proximité où l'on proposait une large gamme de produits du quotidien, notamment d'alimentation générale. Fort de ce premier succès, le concept s'élargit avec la création de Melly Mello Appartements & Chambres, spécialisée dans la location de chambres non meublées, offrant confort et accessibilité.</p>
+                    <p>Puis naît Melly Mello Restaurant, une nouvelle étape décisive qui incarne la passion du goût et l'amour du partage, au cœur d'une expérience gastronomique togolaise raffinée.</p>
+                    <p>Aujourd'hui, fort de ce parcours évolutif, nous donnons naissance à <strong>MELLY MELLO CORP GROUP</strong>, une entité fédératrice qui réunit l'ensemble de ces entreprises sous une même vision : faire grandir la marque Melly Mello dans plusieurs secteurs d'activité, tout en demeurant fidèle à nos valeurs de qualité, d'authenticité et d'excellence.</p>
+                </div>
+                <div class="history-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Débuts Artisanaux</h3>
+                            <p class="timeline-description">Vente de jus de gingembre et de bissap, symboles d'une hospitalité authentique et d'un savoir-faire local.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Melly Mello Boutique</h3>
+                            <p class="timeline-description">Création d'un espace de proximité offrant une large gamme de produits du quotidien et d'alimentation générale.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Appartements & Chambres</h3>
+                            <p class="timeline-description">Expansion vers la location de chambres non meublées, combinant confort et accessibilité.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Melly Mello Restaurant</h3>
+                            <p class="timeline-description">Lancement d'une expérience gastronomique raffinée, célébrant les saveurs togolaises authentiques.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">MELLY MELLO CORP GROUP</h3>
+                            <p class="timeline-description">Naissance du groupe fédérateur, unifiant toutes les entités sous une vision commune d'excellence.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Domaines d'Excellence</h2>
+                <p class="section-subtitle">Découvrez l'étendue de notre expertise à travers nos différents pôles d'activité</p>
+            </div>
+            <div class="activities-grid">
+                <!-- Restaurant -->
+                <div class="activity-card" data-activity="restaurant">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🍽️</div>
+                        <h3 class="card-title">Restaurant</h3>
+                        <div class="card-status status-open" id="restaurantStatus">Ouvert aujourd'hui</div>
+                        <p class="card-description">Une expérience culinaire raffinée alliant saveurs authentiques et créativité gastronomique</p>
+                        <div class="card-hover-content">
+                            <a href="restaurant/index.html" class="card-link">Explorer →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Boutique -->
+                <div class="activity-card" data-activity="boutique">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🛍️</div>
+                        <h3 class="card-title">Boutique</h3>
+                        <div class="card-status status-open" id="boutiqueStatus">Ouvert aujourd'hui</div>
+                        <p class="card-description">Votre espace de proximité pour tous les produits du quotidien et alimentation générale</p>
+                        <div class="card-hover-content">
+                            <a href="boutique/index.html" class="card-link">Découvrir →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chambres -->
+                <div class="activity-card" data-activity="chambres">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">🏨</div>
+                        <h3 class="card-title">Chambres</h3>
+                        <div class="card-status status-open" id="chambresStatus">Ouvert aujourd'hui</div>
+                        <p class="card-description">Location de chambres non meublées offrant confort absolu et élégance raffinée</p>
+                        <div class="card-hover-content">
+                            <a href="chambres/index.html" class="card-link">Réserver →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hôtel -->
+                <div class="activity-card" data-activity="hotel">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="card-icon">✨</div>
+                        <h3 class="card-title">Hôtel</h3>
+                        <div class="card-status status-soon">Ouvre très prochainement</div>
+                        <p class="card-description">Projet d'avenir - Un établissement d'exception qui redéfinira l'hospitalité de luxe</p>
+                        <div class="card-hover-content">
+                            <p>Notre vision ambitieuse pour l'hôtellerie de demain</p>
+                            <a href="hotel/index.html" class="card-link">En savoir plus →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future" class="future">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Ambitions Futures</h2>
+                <p class="section-subtitle">Notre vision pour l'avenir : expansion, innovation et excellence continue</p>
+            </div>
+            <div class="future-content">
+                <div class="future-text">
+                    <p>Notre ambition est claire : bâtir un groupe solide et innovant, symbole du dynamisme entrepreneurial togolais. Parmi nos projets à venir, <strong>Melly Mello Hôtel</strong>, dont l'ouverture est prévue très prochainement, marquera une nouvelle étape majeure de notre expansion.</p>
+                    <p>Nous continuons à innover et à nous développer, toujours guidés par nos valeurs fondamentales d'excellence, d'authenticité et de service de qualité.</p>
+                </div>
+                <div class="future-projects">
+                    <div class="future-project">
+                        <div class="project-icon">🏨</div>
+                        <h3 class="project-title">Melly Mello Hôtel</h3>
+                        <p class="project-description">Un établissement d'exception redéfinissant les standards de l'hospitalité de luxe au Togo</p>
+                    </div>
+                    <div class="future-project">
+                        <div class="project-icon">⛽</div>
+                        <h3 class="project-title">Melly Mello Stations</h3>
+                        <p class="project-description">Un concept novateur de stations-service alliant commodité, excellence et durabilité</p>
+                    </div>
+                    <div class="future-project">
+                        <div class="project-icon">🌍</div>
+                        <h3 class="project-title">Expansion Régionale</h3>
+                        <p class="project-description">Développement de notre présence dans la sous-région ouest-africaine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-particles" id="ctaParticles"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Prêt à Vivre l'Excellence MELLY MELLO ?</h2>
+                <p class="cta-description">Rejoignez-nous dans cette aventure exceptionnelle et découvrez un nouveau standard d'excellence et d'innovation</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary"><span>Nous Contacter</span></a>
+                    <a href="about.html" class="btn btn-secondary"><span>En Savoir Plus</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">MM</div>
+                        <div class="logo-text">
+                            <h2>MELLY MELLO</h2>
+                            <p>CORP GROUPE</p>
+                        </div>
+                    </div>
+                    <p class="footer-description">Une vision intégrée de l'hospitalité, du service premium et de l'innovation. Excellence absolue dans chaque détail, passion dans chaque action.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="#home">Accueil</a></li>
+                            <li><a href="#history">Notre Histoire</a></li>
+                            <li><a href="#activities">Domaines d'Excellence</a></li>
+                            <li><a href="#future">Ambitions Futures</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Nos Activités</h3>
+                        <ul>
+                            <li><a href="restaurant/index.html">Restaurant</a></li>
+                            <li><a href="boutique/index.html">Boutique</a></li>
+                            <li><a href="chambres/index.html">Chambres</a></li>
+                            <li><a href="hotel/index.html">Hôtel</a></li>
+                            <li><a href="stations/index.html">Stations</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Légal</h3>
+                        <ul>
+                            <li><a href="docs/mentions-legales.md">Mentions légales</a></li>
+                            <li><a href="docs/politique-confidentialite.md">Confidentialité</a></li>
+                            <li><a href="docs/cgu.md">CGU</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MELLY MELLO CORP GROUPE. Tous droits réservés. | <a href="#">Excellence & Innovation</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elements
+            const loadingScreen = document.getElementById('loadingScreen');
+            const loadingProgress = document.getElementById('loadingProgress');
+            const navbar = document.getElementById('navbar');
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('navMenu');
+            const heroScroll = document.getElementById('heroScroll');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            
+            // Loading animation
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loadingScreen.classList.add('fade-out');
+                        setTimeout(() => {
+                            loadingScreen.style.display = 'none';
+                        }, 1000);
+                    }, 500);
+                }
+                loadingProgress.style.width = `${progress}%`;
+            }, 150);
+            
+            // Create particles
+            createParticles('heroParticles', 80);
+            createParticles('ctaParticles', 60);
+            
+            // Navbar scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                updateActiveNavLink();
+            });
+            
+            // Mobile menu
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Language switcher
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Hero scroll
+            heroScroll.addEventListener('click', function() {
+                document.getElementById('history').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Update status indicators
+            function updateBusinessStatus() {
+                const now = new Date();
+                const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+                const hour = now.getHours();
+                
+                // Restaurant hours: Monday-Sunday 7:00-23:00
+                const restaurantStatus = document.getElementById('restaurantStatus');
+                if (restaurantStatus) {
+                    if (hour >= 7 && hour < 23) {
+                        restaurantStatus.textContent = 'Ouvert aujourd\'hui';
+                        restaurantStatus.className = 'card-status status-open';
+                    } else {
+                        restaurantStatus.textContent = 'Fermé maintenant';
+                        restaurantStatus.className = 'card-status status-soon';
+                    }
+                }
+                
+                // Boutique hours: Monday-Saturday 8:00-20:00, Sunday 9:00-18:00
+                const boutiqueStatus = document.getElementById('boutiqueStatus');
+                if (boutiqueStatus) {
+                    if ((day >= 1 && day <= 5 && hour >= 8 && hour < 20) || 
+                        (day === 6 && hour >= 9 && hour < 18)) {
+                        boutiqueStatus.textContent = 'Ouvert aujourd\'hui';
+                        boutiqueStatus.className = 'card-status status-open';
+                    } else {
+                        boutiqueStatus.textContent = 'Fermé maintenant';
+                        boutiqueStatus.className = 'card-status status-soon';
+                    }
+                }
+                
+                // Chambres: Always open for bookings
+                const chambresStatus = document.getElementById('chambresStatus');
+                if (chambresStatus) {
+                    chambresStatus.textContent = 'Réservations ouvertes';
+                    chambresStatus.className = 'card-status status-open';
+                }
+            }
+            
+            // Scroll animations
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(50px)';
+                        setTimeout(() => {
+                            entry.target.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                    }
+                });
+            }, observerOptions);
+            
+            const elementsToAnimate = document.querySelectorAll('.section-header, .about-content, .activity-card, .value-item, .timeline-item, .future-project');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            
+            // Update active nav link
+            function updateActiveNavLink() {
+                const sections = document.querySelectorAll('section');
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 200) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Create particles function
+            function createParticles(containerId, count) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                for (let i = 0; i < count; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 5 + 2;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    const delay = Math.random() * 5;
+                    const duration = Math.random() * 5 + 6;
+                    particle.style.animationDelay = `${delay}s`;
+                    particle.style.animationDuration = `${duration}s`;
+                    particle.style.opacity = Math.random() * 0.7 + 0.3;
+                    
+                    container.appendChild(particle);
+                }
+            }
+            
+            // Activity cards 3D tilt effect
+            const activityCards = document.querySelectorAll('.activity-card');
+            activityCards.forEach(card => {
+                card.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    
+                    this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-20px) scale(1.02)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+                });
+            });
+            
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+            
+            // Add parallax effect to hero
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroContent = document.querySelector('.hero-content');
+                const heroParticles = document.getElementById('heroParticles');
+                
+                if (heroContent && scrolled < window.innerHeight) {
+                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+                }
+                
+                if (heroParticles && scrolled < window.innerHeight) {
+                    heroParticles.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+            });
+            
+            // Logo hover effect
+            const logoIcon = document.querySelector('.logo-icon');
+            if (logoIcon) {
+                logoIcon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(360deg)';
+                });
+                
+                logoIcon.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            }
+            
+            // Initialize
+            updateActiveNavLink();
+            updateBusinessStatus();
+            
+            // Update status every minute
+            setInterval(updateBusinessStatus, 60000);
+            
+            // Performance optimization: Debounce scroll events
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                if (scrollTimeout) {
+                    window.cancelAnimationFrame(scrollTimeout);
+                }
+                scrollTimeout = window.requestAnimationFrame(function() {
+                    updateActiveNavLink();
+                });
+            });
+            
+            console.log('🌟 MELLY MELLO CORP - Excellence Loaded Successfully! 🌟');
+        });
+    </script>
+</body>
+</html>
