@@ -1048,6 +1048,51 @@
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
         }
 
+        /* ====== MOBILE FIX ====== */
+        @media (max-width: 1000px) {
+        .activities-grid {
+            grid-template-columns: 2fr; /* Une seule colonne sur petit écran */
+            gap: 50px;
+        }
+
+        .activity-card {
+            height: auto; /* s’ajuste selon le contenu */
+            min-height: 600px; /* mais jamais en dessous de 600px */
+            transform: none;
+        }
+    
+        .card-background {
+            transform: none !important;
+        }
+    
+        /* Afficher toujours le contenu caché sur mobile */
+        .card-hover-content {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    
+        /* Éviter l'effet hover inutile */
+        .activity-card:hover {
+            transform: none;
+            box-shadow: var(--shadow-md);
+        }
+    
+        .activity-card:hover .card-background {
+            transform: none;
+        }
+    
+        .activity-card:hover .card-content {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.75));
+        }
+    
+        .card-link {
+            background: var(--primary-gold);
+            color: var(--dark-charcoal);
+            border: none;
+            font-weight: 600;
+        }
+    }
+
         /* ====== FUTURE SECTION ====== */
         .future {
             padding: 150px 0;
