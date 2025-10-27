@@ -1089,50 +1089,99 @@
             50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
         }
 
-        /* 🌐 ====== RESPONSIVE DESIGN AVANCÉ ====== */
+       /* 🌍 ====== RESPONSIVE DESIGN ULTRA-FLUENT ====== */
 
-/* --- PRINCIPES ---
-   ✅ Mobile-first : le style de base est pensé pour les petits écrans.
-   ✅ Utilisation de unités fluides (vw, vh, clamp) pour un rendu homogène.
-   ✅ Transitions douces et interactions accessibles.
-   ✅ Breakpoints affinés pour toutes tailles (y compris tablettes et grands mobiles).
+/* --- Vision ---
+   🎯 Objectif : offrir une expérience haut de gamme, parfaitement fluide sur iPhone 14 et tout smartphone moderne.
+   🧠 Concept : mobile-first + design fluide + esthétique immersive.
 */
 
-/* ====== VARIABLES RESPONSIVES ====== */
+/* ====== VARIABLES GLOBALES ====== */
 :root {
-    --text-base: clamp(0.9rem, 2vw, 1.2rem);
-    --title-size: clamp(2rem, 6vw, 5rem);
-    --section-title: clamp(1.8rem, 5vw, 4rem);
-    --hero-subtitle: clamp(1rem, 2.5vw, 1.8rem);
-    --card-height: clamp(400px, 70vw, 500px);
+    --text-base: clamp(0.95rem, 1.5vw, 1.2rem);
+    --title-size: clamp(2.4rem, 7vw, 5.5rem);
+    --subtitle-size: clamp(1.1rem, 3vw, 1.8rem);
+    --section-title: clamp(2rem, 5vw, 4.2rem);
+    --card-height: clamp(450px, 70vw, 550px);
+    --radius: 1.5rem;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s ease-in-out;
 }
 
-/* ====== GLOBAL ====== */
-body {
-    font-size: var(--text-base);
-    line-height: 1.6;
-    word-wrap: break-word;
-    overflow-x: hidden;
+/* ====== RÉGLAGES DE BASE ====== */
+html {
+    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
 
-/* ====== TYPOGRAPHIE FLUIDE ====== */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--text-base);
+    margin: 0;
+    padding: 0;
+    color: #f5f5f5;
+    background: radial-gradient(circle at top, #0b0b0b, #000);
+    overflow-x: hidden;
+}
+
+/* ====== TYPOGRAPHIE ====== */
 .hero-title {
     font-size: var(--title-size);
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: 2px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+.hero-subtitle {
+    font-size: var(--subtitle-size);
+    text-align: center;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
 }
 .section-title {
     font-size: var(--section-title);
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
     margin-bottom: 2rem;
 }
-.hero-subtitle {
-    font-size: var(--hero-subtitle);
-    text-transform: uppercase;
-    letter-spacing: 6px;
+
+/* ====== NAVIGATION ====== */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: var(--transition);
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1100;
+}
+.hamburger span {
+    height: 3px;
+    border-radius: 3px;
+    background: #fff;
+    transition: var(--transition);
+}
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -7px);
 }
 
-/* ====== GRILLES ADAPTATIVES ====== */
+/* ====== GRILLES ====== */
 .activities-grid,
 .values-grid,
 .footer-links {
@@ -1144,24 +1193,118 @@ body {
 .activity-card {
     position: relative;
     height: var(--card-height);
-    border-radius: 18px;
+    border-radius: var(--radius);
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     text-align: center;
     background-size: cover;
     background-position: center;
+    box-shadow: var(--shadow);
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    will-change: transform;
+}
+.activity-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 10%, rgba(0,0,0,0.1) 90%);
+    z-index: 1;
 }
 .activity-card:hover {
-    transform: scale(1.03);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 .card-title {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    color: #fff;
+    position: relative;
     z-index: 2;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    color: #fff;
+    padding: 1rem 2rem;
 }
+
+/* ====== CTA ====== */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+}
+.btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    border: none;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 81, 47, 0.4);
+}
+
+/* ====== BREAKPOINTS ====== */
+
+/* 📱 Mobile-first : tout est fluide déjà */
+
+/* Tablettes & petits laptops */
+@media (min-width: 768px) {
+    .activities-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Laptops & desktops */
+@media (min-width: 1024px) {
+    .activities-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-title { letter-spacing: 4px; }
+}
+
+/* ====== MENU MOBILE ====== */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(10, 10, 10, 0.97);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        transition: var(--transition);
+    }
+    .nav-menu.active { left: 0; }
+    .hamburger { display: flex; }
+}
+
+/* ====== iPHONE OPTIMISATION ====== */
+@supports (-webkit-touch-callout: none) {
+    /* Ajustements spécifiques aux écrans Retina et iOS Safari */
+    body {
+        -webkit-font-smoothing: antialiased;
+        background-attachment: scroll;
+    }
+    .activity-card {
+        height: min(80vh, 560px);
+    }
+    .hero-title {
+        font-size: clamp(2.4rem, 6vw, 4.6rem);
+        line-height: 1.15;
+    }
+    .btn {
+        padding: 1.2rem 2.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+}
+
 
 /* ====== NAVIGATION ====== */
 .nav-menu {
